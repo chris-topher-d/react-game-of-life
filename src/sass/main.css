@@ -4,7 +4,9 @@
   box-sizin: border-box; }
 
 body {
-  background-color: #999999; }
+  background-color: #999999;
+  color: #ffffff;
+  font-family: Helvetica, sans-serif; }
 
 .app {
   display: flex;
