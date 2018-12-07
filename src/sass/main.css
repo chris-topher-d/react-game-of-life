@@ -3,6 +3,9 @@
   margin: 0;
   box-sizin: border-box; }
 
+body {
+  background-color: #999999; }
+
 .app {
   display: flex;
   flex-direction: column;
