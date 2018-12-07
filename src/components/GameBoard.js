@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Grid from './Grid';
+import Controls from './Controls';
 
 class GameBoard extends Component {
   constructor() {
@@ -14,7 +15,9 @@ class GameBoard extends Component {
   }
 
   boxClick = (row, col) => {
-    console.log(row, col);
+    let gridCopy = this.state.grid.map(array => array.slice());
+    gridCopy[row][col] = !gridCopy[row][col];
+    this.setState({grid: gridCopy});
   }
 
   render() {
@@ -26,6 +29,7 @@ class GameBoard extends Component {
           cols={this.cols}
           boxClick={this.boxClick}
         />
+        <Controls />
       </div>
     );
   }
