@@ -40,6 +40,49 @@ class GameBoard extends Component {
     this.setState({grid: gridCopy});
   }
 
+  // Play game
+  play = () => {
+    clearInterval(this.intervalId);
+    this.intervalId = setInterval(this.updateGrid, this.speed);
+  }
+
+  // Pause game
+  pause = () => {
+    console.log('pause');
+  }
+
+  // Check each cell for neighbor status and update board
+  updateGrid = () => {
+    // Game board's current state
+    let grid = this.state.grid;
+    // Grid copy for position updates
+    let gridCopy = this.state.grid.map(array => array.slice());
+
+    for (let i = 0; i < this.rows; i++) {
+      for (let j = 0; j < this.cols; j++) {
+        let count = 0;
+        // Increase count if cell has a neighbor with value of true
+        if (i > 0) if (grid[i - 1][j]) count++;
+        if (i > 0 && j > 0) if (grid[i - 1][j - 1]) count++;
+        if (i > 0 && j < this.cols - 1) if (grid[i - 1][j + 1]) count++;
+        if (j < this.cols - 1) if (grid[i][j + 1]) count++;
+        if (j > 0) if (grid[i][j - 1]) count++;
+        if (i < this.rows - 1) if (grid[i + 1][j]) count++;
+        if (i < this.rows - 1 && j > 0) if (grid[i + 1][j - 1]) count++;
+        if (i < this.rows - 1 && this.cols - 1) if (grid[i + 1][j + 1]) count++;
+        // If cell has fewer than two or more than three live neighbors, it dies (given false value)
+        if (grid[i][j] && (count < 2 || count > 3)) gridCopy[i][j] = false;
+        // If cell has exactly three live (true) neighbors, it becomes a live (true) cell
+        if (!grid[i][j] && count === 3) gridCopy[i][j] = true;
+      }
+    }
+
+    this.setState({
+      grid: gridCopy,
+      generation: this.state.generation + 1
+    });
+  }
+
   render() {
     return (
       <div id='game-board'>
@@ -51,6 +94,8 @@ class GameBoard extends Component {
         />
         <Controls
           seed={this.seed}
+          play={this.play}
+          pause={this.pause}
         />
       </div>
     );
