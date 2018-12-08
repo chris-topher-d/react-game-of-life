@@ -5,7 +5,7 @@ class Controls extends Component {
     return (
       <div id='controls'>
         <div id='buttons'>
-          <button>Seed Game</button>
+          <button onClick={this.props.seed}>Seed Game</button>
           <button>Play</button>
         </div>
       </div>

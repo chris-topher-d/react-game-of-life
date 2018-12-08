@@ -49,7 +49,9 @@ class GameBoard extends Component {
           cols={this.cols}
           boxClick={this.boxClick}
         />
-        <Controls />
+        <Controls
+          seed={this.seed}
+        />
       </div>
     );
   }
