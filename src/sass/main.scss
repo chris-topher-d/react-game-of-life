@@ -1,2 +1,9 @@
 @import 'base/reset';
 @import 'base/layout';
+
+@import 'layout/header';
+
+@import 'components/game-board';
+@import 'components/grid';
+@import 'components/box';
+@import 'components/controls';

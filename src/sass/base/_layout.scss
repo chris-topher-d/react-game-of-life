@@ -1,11 +1,11 @@
 body {
-  background-color: #999999;
+  background-color: #333333;
   color: #ffffff;
   font-family: Helvetica, sans-serif;
-}
 
-.app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
