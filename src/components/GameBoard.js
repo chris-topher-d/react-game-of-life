@@ -15,6 +15,7 @@ class GameBoard extends Component {
   }
 
   componentDidMount() {
+    // Automatically seed board when component mounts
     this.seed();
   }
 
@@ -48,7 +49,7 @@ class GameBoard extends Component {
 
   // Pause game
   pause = () => {
-    console.log('pause');
+    clearInterval(this.intervalId);
   }
 
   // Check each cell for neighbor status and update board
@@ -70,7 +71,7 @@ class GameBoard extends Component {
         if (i < this.rows - 1) if (grid[i + 1][j]) count++;
         if (i < this.rows - 1 && j > 0) if (grid[i + 1][j - 1]) count++;
         if (i < this.rows - 1 && this.cols - 1) if (grid[i + 1][j + 1]) count++;
-        // If cell has fewer than two or more than three live neighbors, it dies (given false value)
+        // If cell has fewer than two, or more than three live neighbors, it dies (given false value)
         if (grid[i][j] && (count < 2 || count > 3)) gridCopy[i][j] = false;
         // If cell has exactly three live (true) neighbors, it becomes a live (true) cell
         if (!grid[i][j] && count === 3) gridCopy[i][j] = true;

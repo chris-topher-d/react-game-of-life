@@ -6,7 +6,8 @@ class Controls extends Component {
       <div id='controls'>
         <div id='buttons'>
           <button onClick={this.props.seed}>Seed Game</button>
-          <button>Play</button>
+          <button onClick={this.props.play}>Play</button>
+          <button onClick={this.props.pause}>Pause</button>
         </div>
       </div>
     );
