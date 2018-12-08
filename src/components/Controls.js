@@ -4,7 +4,10 @@ class Controls extends Component {
   render() {
     return (
       <div id='controls'>
-        <h2>Controls Component</h2>
+        <div id='buttons'>
+          <button>Seed Game</button>
+          <button>Play</button>
+        </div>
       </div>
     );
   }

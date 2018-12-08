@@ -14,6 +14,7 @@ class GameBoard extends Component {
     }
   }
 
+  // Changes state of cell to true or false when clicked
   boxClick = (row, col) => {
     let gridCopy = this.state.grid.map(array => array.slice());
     gridCopy[row][col] = !gridCopy[row][col];
