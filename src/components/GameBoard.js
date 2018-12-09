@@ -52,6 +52,14 @@ class GameBoard extends Component {
     clearInterval(this.intervalId);
   }
 
+  reset = () => {
+    clearInterval(this.intervalId);
+    this.setState({
+      grid: Array(this.rows).fill(Array(this.cols).fill(false)),
+      generation: 0
+    });
+  }
+
   // Check each cell for neighbor status and update board
   updateGrid = () => {
     // Game board's current state
@@ -98,6 +106,7 @@ class GameBoard extends Component {
           seed={this.seedBoard}
           play={this.play}
           pause={this.pause}
+          reset={this.reset}
         />
       </div>
     );
