@@ -10,7 +10,8 @@ class GameBoard extends Component {
     this.speed = 150;
     this.state = {
       grid: Array(this.rows).fill(Array(this.cols).fill(false)),
-      generation: 0
+      generation: 0,
+      speedSliderPosition: 150
     }
   }
 
@@ -60,6 +61,11 @@ class GameBoard extends Component {
     });
   }
 
+  changeSpeed = (e) => {
+    console.log(e.nativeEvent.offsetX);
+    this.setState({speedSliderPosition: e.nativeEvent.offsetX});
+  }
+
   // Check each cell for neighbor status and update board
   updateGrid = () => {
     // Game board's current state
@@ -107,6 +113,8 @@ class GameBoard extends Component {
           play={this.play}
           pause={this.pause}
           reset={this.reset}
+          changeSpeed={this.changeSpeed}
+          speedPosition={this.state.speedSliderPosition}
         />
       </div>
     );

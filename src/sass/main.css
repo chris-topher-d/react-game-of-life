@@ -52,10 +52,32 @@ header {
   #controls #buttons button {
     background-color: #333;
     color: #fff;
+    font-weight: bold;
     border: 2px solid #999999;
-    padding: 5px 10px;
+    border-radius: 50px;
+    padding: 5px 15px;
     margin: 0 5px;
     cursor: pointer; }
     #controls #buttons button:hover {
       background-color: #999999;
       color: #333333; }
+  #controls #speed-slider {
+    text-align: center;
+    margin: 30px 0; }
+  #controls .slider-header {
+    margin-bottom: 10px; }
+  #controls .input-range {
+    appearance: none;
+    height: 5px;
+    width: 300px;
+    background-color: #999999;
+    border-radius: 10px; }
+    #controls .input-range:focus, #controls .input-range:active {
+      outline: none; }
+    #controls .input-range::-webkit-slider-thumb {
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      display: block;
+      background-color: #ffffff;
+      border-radius: 100%; }
