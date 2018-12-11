@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import Buttons from './Buttons';
 import Grid from './Grid';
+import Sliders from './Sliders';
 import Controls from './Controls';
 
 class GameBoard extends Component {
@@ -101,6 +103,12 @@ class GameBoard extends Component {
   render() {
     return (
       <div id='game-board'>
+        <Buttons
+          seed={this.seedBoard}
+          play={this.play}
+          pause={this.pause}
+          reset={this.reset}
+        />
         <Grid
           grid={this.state.grid}
           rows={this.rows}
@@ -108,14 +116,7 @@ class GameBoard extends Component {
           boxClick={this.boxClick}
         />
         <p id='generation-count'>Generation: {this.state.generation}</p>
-        <Controls
-          seed={this.seedBoard}
-          play={this.play}
-          pause={this.pause}
-          reset={this.reset}
-          changeSpeed={this.changeSpeed}
-          speedPosition={this.state.speedSliderPosition}
-        />
+        <Sliders />
       </div>
     );
   }
