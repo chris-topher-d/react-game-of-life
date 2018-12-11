@@ -6,8 +6,9 @@ import Sliders from './Sliders';
 class GameBoard extends Component {
   constructor() {
     super();
-    this.rows = 30;
-    this.cols = 50;
+    this.rows = 24;
+    this.cols = 40;
+    this.boxSize = 13.5;
     this.speed = 250;
     this.state = {
       grid: Array(this.rows).fill(Array(this.cols).fill(false)),
@@ -66,15 +67,15 @@ class GameBoard extends Component {
   changeSpeed = (sliderPosition) => {
     let percentage = (100 - sliderPosition) * .01;
     let newSpeed = (percentage * 1000);
-    console.log(newSpeed);
     this.speed = newSpeed;
     this.play();
   }
 
   // Change grid size with grid size slider
-  setBoardSize = (x, y) => {
+  setBoardSize = (x, y, boxSize) => {
     this.cols = x;
     this.rows = y;
+    this.boxSize = boxSize;
     this.reset();
   }
 
@@ -123,6 +124,7 @@ class GameBoard extends Component {
           grid={this.state.grid}
           rows={this.rows}
           cols={this.cols}
+          boxSize={this.boxSize}
           boxClick={this.boxClick}
         />
         <p id='generation-count'>Generation: {this.state.generation}</p>

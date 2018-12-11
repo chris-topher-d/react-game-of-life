@@ -4,7 +4,7 @@ class Sliders extends Component {
   constructor() {
     super();
     this.state = {
-      gridSize: '50 X 30',
+      gridSize: '40 X 24',
       speed: 75,
       gridSizeSlider: 50
     }
@@ -19,24 +19,26 @@ class Sliders extends Component {
 
   // Changes grid size when slider is moved
   changeGridSize = (sliderPosition) => {
-    // let gridSize = '';
-    let x = 0, y = 0;
+    let x = 0, y = 0, boxSize = 0;
 
-    // if (sliderPosition < 34) gridSize = '20 X 10';
-    // if (sliderPosition > 33 && sliderPosition < 67) gridSize = '50 X 30';
-    // if (sliderPosition > 66) gridSize = '70 X 50';
     if (sliderPosition < 34) {
-      x = 20;
-      y = 10;
+      // Set grid size to 25 X 15 with 21 X 21 px squares
+      x = 25;
+      y = 15;
+      boxSize = 21;
     } else if (sliderPosition > 33 && sliderPosition < 67) {
+      // Set grid size to 40 X 24 with 13.5 X 13.5 px squares
+      x = 40;
+      y = 24;
+      boxSize = 13.5;
+    } else if (sliderPosition > 66) {
+      // Set grid size to 50 X 30 with 11 X 11 px squares
       x = 50;
       y = 30;
-    } else if (sliderPosition > 66) {
-      x = 70;
-      y = 50;
+      boxSize = 11;
     }
 
-    this.props.setBoardSize(x, y);
+    this.props.setBoardSize(x, y, boxSize);
 
     this.setState({
       gridSize: `${x} X ${y}`,

@@ -3,7 +3,7 @@ import Box from './Box';
 
 class Grid extends Component {
   render() {
-    const gridWidth = this.props.cols * 9;
+    // const gridWidth = this.props.cols * this.props.boxSize;
     let rowsArray = [];
     let boxClass = '';
 
@@ -17,8 +17,10 @@ class Grid extends Component {
           <Box
             boxClass={boxClass}
             key={id}
+            id={id}
             row={i}
             col={j}
+            boxSize={this.props.boxSize}
             boxClick={this.props.boxClick}
           />
         );
@@ -26,7 +28,7 @@ class Grid extends Component {
     }
 
     return (
-      <div id='grid' style={{width: gridWidth}}>
+      <div id='grid'>
         {rowsArray}
       </div>
     );
