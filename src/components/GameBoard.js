@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import Buttons from './Buttons';
 import Grid from './Grid';
 import Sliders from './Sliders';
-import Controls from './Controls';
 
 class GameBoard extends Component {
   constructor() {
     super();
     this.rows = 30;
     this.cols = 50;
-    this.speed = 150;
+    this.speed = 250;
     this.state = {
       grid: Array(this.rows).fill(Array(this.cols).fill(false)),
-      generation: 0,
-      speedSliderPosition: 150
+      generation: 0
     }
   }
 
@@ -55,6 +53,7 @@ class GameBoard extends Component {
     clearInterval(this.intervalId);
   }
 
+  // Reset game - clears board
   reset = () => {
     clearInterval(this.intervalId);
     this.setState({
@@ -63,9 +62,20 @@ class GameBoard extends Component {
     });
   }
 
-  changeSpeed = (e) => {
-    console.log(e.nativeEvent.offsetX);
-    this.setState({speedSliderPosition: e.nativeEvent.offsetX});
+  // Set game speed with speed slider
+  changeSpeed = (sliderPosition) => {
+    let percentage = (100 - sliderPosition) * .01;
+    let newSpeed = (percentage * 1000);
+    console.log(newSpeed);
+    this.speed = newSpeed;
+    this.play();
+  }
+
+  // Change grid size with grid size slider
+  setBoardSize = (x, y) => {
+    this.cols = x;
+    this.rows = y;
+    this.reset();
   }
 
   // Check each cell for neighbor status and update board
@@ -116,7 +126,10 @@ class GameBoard extends Component {
           boxClick={this.boxClick}
         />
         <p id='generation-count'>Generation: {this.state.generation}</p>
-        <Sliders />
+        <Sliders
+          changeSpeed={this.changeSpeed}
+          setBoardSize={this.setBoardSize}
+        />
       </div>
     );
   }
