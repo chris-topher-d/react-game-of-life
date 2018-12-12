@@ -4,10 +4,10 @@ class Buttons extends Component {
   render() {
     return (
       <div id='buttons'>
-        <button onClick={this.props.seed}>Seed Game</button>
-        <button onClick={this.props.play}>Play</button>
-        <button onClick={this.props.pause}>Pause</button>
-        <button onClick={this.props.reset}>Reset</button>
+        <i className='fa fa-th' aria-hidden='true' onClick={this.props.seed} title='Seed Board'></i>
+        <i className='fa fa-play' aria-hidden='true' onClick={this.props.play} title='Play'></i>
+        <i className='fa fa-pause' aria-hidden='true' onClick={this.props.pause} title='Pause'></i>
+        <i className='fas fa-redo-alt' aria-hidden='true' onClick={this.props.reset} title='Reset'></i>
       </div>
     );
   }
