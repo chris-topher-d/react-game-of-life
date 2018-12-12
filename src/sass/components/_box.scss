@@ -1,20 +1,18 @@
 .box {
   display: inline-block;
-  border: 1px solid #333;
-  // width: 10px;
-  // height: 10px;
+  border: 1px solid $backgroundGray;
   margin-left: -1px;
   margin-bottom: -1px;
 
   &:hover {
-    background-color: #333333;
+    background-color: $backgroundGray;
   }
 }
 
 .off {
-  background-color: #999999;
+  background-color: $darkGray;
 }
 
 .on {
-  background-color: #25de00;
+  background-color: $green;
 }

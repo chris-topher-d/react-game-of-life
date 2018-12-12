@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:400,700");
 * {
   padding: 0;
   margin: 0;
@@ -6,11 +7,13 @@
 body {
   background-color: #333333;
   color: #ffffff;
-  font-family: Helvetica, sans-serif; }
+  font-family: 'Josefin Sans', Helvetica, sans-serif; }
   body .app {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    justify-content: center;
+    height: 100vh; }
 
 header {
   margin: 20px 0; }
@@ -24,15 +27,30 @@ header {
   #game-board #generation-count {
     margin-top: 20px; }
 
+#buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #25de00;
+  border-radius: 100px;
+  padding: 10px 20px;
+  margin: 10px 0 20px; }
+  #buttons i {
+    margin: 0 15px;
+    font-size: 1.3em;
+    cursor: pointer; }
+    #buttons i:hover {
+      color: #25de00; }
+
 #grid {
   line-height: 0;
-  background-color: #ffffff; }
+  background-color: #ffffff;
+  width: 500px;
+  height: 300px; }
 
 .box {
   display: inline-block;
-  border: 1px solid #fff;
-  width: 10px;
-  height: 10px;
+  border: 1px solid #333333;
   margin-left: -1px;
   margin-bottom: -1px; }
   .box:hover {
@@ -44,40 +62,26 @@ header {
 .on {
   background-color: #25de00; }
 
-#controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 21px 0; }
-  #controls #buttons button {
-    background-color: #333;
-    color: #fff;
-    font-weight: bold;
-    border: 2px solid #999999;
-    border-radius: 50px;
-    padding: 5px 15px;
-    margin: 0 5px;
-    cursor: pointer; }
-    #controls #buttons button:hover {
-      background-color: #999999;
-      color: #333333; }
-  #controls #speed-slider {
-    text-align: center;
-    margin: 30px 0; }
-  #controls .slider-header {
-    margin-bottom: 10px; }
-  #controls .input-range {
+#sliders .slider-container {
+  text-align: center;
+  margin: 30px 0; }
+
+#sliders .slider-header {
+  margin-bottom: 10px; }
+
+#sliders .slider {
+  appearance: none;
+  height: 5px;
+  width: 300px;
+  background-color: #25de00;
+  outline: none;
+  border-radius: 10px; }
+  #sliders .slider:focus, #sliders .slider:active {
+    outline: none; }
+  #sliders .slider::-webkit-slider-thumb {
     appearance: none;
-    height: 5px;
-    width: 300px;
-    background-color: #999999;
-    border-radius: 10px; }
-    #controls .input-range:focus, #controls .input-range:active {
-      outline: none; }
-    #controls .input-range::-webkit-slider-thumb {
-      appearance: none;
-      height: 20px;
-      width: 20px;
-      display: block;
-      background-color: #ffffff;
-      border-radius: 100%; }
+    height: 20px;
+    width: 20px;
+    display: block;
+    background-color: #ffffff;
+    border-radius: 100%; }

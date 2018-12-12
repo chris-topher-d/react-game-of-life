@@ -1,7 +1,7 @@
 body {
-  background-color: #333333;
-  color: #ffffff;
-  font-family: Helvetica, sans-serif;
+  background-color: $backgroundGray;
+  color: $white;
+  font-family: 'Josefin Sans', Helvetica, sans-serif;
 
   .app {
     display: flex;
