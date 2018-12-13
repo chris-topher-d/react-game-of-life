@@ -9,7 +9,7 @@ class GameBoard extends Component {
     this.rows = 24;
     this.cols = 40;
     this.boxSize = 13.5;
-    this.speed = 250;
+    this.speed = 500;
     this.state = {
       grid: Array(this.rows).fill(Array(this.cols).fill(false)),
       generation: 0
@@ -33,8 +33,8 @@ class GameBoard extends Component {
     let gridCopy = this.state.grid.map(array => array.slice());
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.cols; j++) {
-        // Set approx 20% of random cells to true
-        if (Math.floor(Math.random() * 5) === 1) {
+        // Set approx 25% of random cells to true
+        if (Math.floor(Math.random() * 4) === 1) {
           gridCopy[i][j] = true;
         }
       }
@@ -127,7 +127,7 @@ class GameBoard extends Component {
           boxSize={this.boxSize}
           boxClick={this.boxClick}
         />
-        <p id='generation-count'>Generation: {this.state.generation}</p>
+        <p id='generation'>Generation: <span id='gen-count'>{this.state.generation}</span></p>
         <Sliders
           changeSpeed={this.changeSpeed}
           setBoardSize={this.setBoardSize}

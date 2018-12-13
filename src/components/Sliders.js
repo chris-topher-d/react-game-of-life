@@ -5,14 +5,13 @@ class Sliders extends Component {
     super();
     this.state = {
       gridSize: '40 X 24',
-      speed: 75,
+      speed: 50,
       gridSizeSlider: 50
     }
   }
 
   // Changes game speed when slider is moved
   updateSpeed = sliderPosition => {
-    console.log(sliderPosition);
     this.props.changeSpeed(sliderPosition);
     this.setState({speed: sliderPosition});
   }

@@ -3,7 +3,14 @@
   flex-direction: column;
   align-items: center;
 
-  #generation-count {
-    margin-top: 20px;
+  #generation {
+    margin-top: 25px;
+    color: $green;
+    font-size: 1.3em;
+    font-weight: bold;
+
+    #gen-count {
+      color: $white;
+    }
   }
 }
