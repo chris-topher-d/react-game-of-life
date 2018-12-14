@@ -9,7 +9,7 @@ class GameBoard extends Component {
     this.rows = 24;
     this.cols = 40;
     this.boxSize = 13.5;
-    this.speed = 500;
+    this.speed = 250;
     this.state = {
       grid: Array(this.rows).fill(Array(this.cols).fill(false)),
       generation: 0
@@ -66,7 +66,9 @@ class GameBoard extends Component {
   // Set game speed with speed slider
   changeSpeed = (sliderPosition) => {
     let percentage = (100 - sliderPosition) * .01;
-    let newSpeed = (percentage * 1000);
+    // Set speed as a percentage of half a second (500ms)
+    // 100% means each generation takes half a second
+    let newSpeed = (percentage * 500);
     this.speed = newSpeed;
     this.play();
   }
